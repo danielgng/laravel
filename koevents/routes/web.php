@@ -33,4 +33,13 @@ Route::post('/events/join/{id}', [EventController::class, 'joinEvent'])->middlew
 
 Route::delete('/events/leave/{id}', [EventController::class, 'leaveEvent'])->middleware('auth');
 
+Route::get('/dashboard-admin', [EventController::class, 'dashboardAd'])->middleware('auth');
+
+Route::get('/admin', [EventController::class, 'indexAdm']);
+
+Route::get('/events/adm/{id}', [EventController::class, 'showAdm']);
+
+
+
+
 

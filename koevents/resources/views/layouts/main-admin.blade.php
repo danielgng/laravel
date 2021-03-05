@@ -18,15 +18,18 @@
       <nav class="navbar navbar-expand-lg navbar-light">
       <div class="callapse navbar-collapse" id="navbar">
         <a href="/" class="navbar-brand">
-        <img src="/img/logo3.png" alt="Logo">
+        <img src="/img/gear.png" alt="Logo">
         </a>
         <ul class="navbar-nav">
         <li class="nav-item">
-        <a href="/" class="nav-link">Inicio</a>
+        <a href="/admin" class="nav-link">Inicio</a>
+        </li>
+        <li class="nav-item">
+        <a href="/events/create" class="nav-link">Criar Eventos</a>
         </li>
         @auth 
         <li class="nav-item">
-        <a href="/dashboard" class="nav-link">Meus Eventos</a>
+        <a href="/dashboard-admin" class="nav-link">Meus Eventos</a>
         </li>
         <li class="nav-item">
         <form action="/logout"method="POST">

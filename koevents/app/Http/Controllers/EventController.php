@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exception\destroyException;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Models\User;
@@ -28,12 +29,33 @@ class EventController extends Controller
         return view('welcome', ['events'=>$events, 'search'=>$search]);
     }
 
+    public function indexAdm(){
+      /**Aqui estarei pegando todos os dados localizados no Model Event */
+      
+             $search = request('search');
+      
+             if($search){
+                 $events = Event::where([
+                   ['title', 'like', '%'.$search.'%']
+                 ])->get();
+      
+             }else{
+      
+              $events = Event::all();
+      
+             }
+             
+          
+              return view('welcome-admin', ['events'=>$events, 'search'=>$search]);
+          }
+
   public function create(){
     return view('events.create');
   }
 /*Esta função ira trazer todos os dados digitados no formulario create */
  public function store(Request $request){
-    $event = new Event;
+    try {
+      $event = new Event;
 
     $event->title = $request->title;
     $event->date = $request->date;
@@ -64,7 +86,10 @@ class EventController extends Controller
     
    $event->save();
 
-   return redirect('/')->with('msg','Evento criado com sucesso!');
+   return redirect('/admin')->with('msg','Evento criado com sucesso!');
+    } catch (\Throwable $th) {
+      return redirect('/events/create')->with('msg','Error ao criar evento, você não preenheu todos os campos!');
+    }
 
  }
 
@@ -104,14 +129,32 @@ class EventController extends Controller
     ['events'=>$events, 'eventsAsParticipant'=>$eventsAsParticipant]);
  }
 
+ public function dashboardAd(){
+  $user = auth()->user();
+
+  $events = $user->events;
+
+  $eventsAsParticipant = $user->eventsAsParticipant;
+
+  return view('events.dashboard-admin',
+   ['events'=>$events, 'eventsAsParticipant'=>$eventsAsParticipant]);
+}
+
  public function destroy($id){
 
-  $user= auth()->user();
+  try {
+
+   $user= auth()->user();
   
   Event::findOrfail($id)->delete();
 
-  return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
+  return redirect('/dashboard-admin')->with('msg', 'Evento excluído com sucesso!');
+  } catch (\Throwable $th) {
+
+    return redirect('/dashboard-admin')->with('msg','Você não pode excluir um evento com participante!');
+  }
  }
+
 
  public function edit($id){
 
@@ -120,12 +163,14 @@ class EventController extends Controller
   $event = Event::findOrfail($id);
 
   if($user->id != $event->user_id){
-    return redirect('/dashboard');
+    return redirect('/dashboard-admin');
   }
 
   return view('events.edit', ['event' => $event]);
 
  }
+
+ 
 
  public function update(Request $request){
 
@@ -147,7 +192,7 @@ class EventController extends Controller
 
    Event::findOrfail($request->id)->update($data);
   
-   return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
+   return redirect('/dashboard-admin')->with('msg', 'Evento editado com sucesso!');
 
  }
 
@@ -176,6 +221,34 @@ class EventController extends Controller
 
  }
 
+ public function showAdm($id){
+
+  $event= Event::findOrfail($id);
+
+  $user = auth()->user();
+  $hasUserJoined= false;
+
+  if($user){
+    
+    $userEvents = $user->eventsAsParticipant->toArray();
+         
+    foreach($userEvents as $userEvent){
+      if($userEvent['id'] == $id){
+      $hasUserJoined = true;
+      } 
+    }
+  }
+   
+  $eventOwner = User::where('id', $event->user_id)->first()->toArray();
+
+  return view('events.show-admin', ['event'=>$event,
+   'eventOwner'=>$eventOwner,
+   'hasUserJoined'=>$hasUserJoined]);
+  
 }
+ 
+}
+
+
 
 
