@@ -6,6 +6,7 @@ use App\Exception\destroyException;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Models\User;
+use App\Models\Follow;
 
 class EventController extends Controller
 {
@@ -52,6 +53,7 @@ class EventController extends Controller
   public function create(){
     return view('events.create');
   }
+  
 /*Esta função ira trazer todos os dados digitados no formulario create */
  public function store(Request $request){
     try {
@@ -246,9 +248,36 @@ class EventController extends Controller
    'hasUserJoined'=>$hasUserJoined]);
   
 }
+
+public function createFollow(){
+  return view('events.follow');
+}
+
+public function follow(Request $request){
+  try {
+    $follow = new Follow;
+
+  $follow->name = $request->name;
+  $follow->date = $request->date;
+  $follow->number = $request->number;
+  $follow->email =  $request->email;   
+  $follow->description = $request->description;
  
+
+ $user= auth()->user();
+
+ $follow->user_id = $user->id;
+  
+ $follow->save();
+
+ return redirect('/')->with('msg','Mensagem enviada com sucesso!');
+  } catch (\Throwable $th) {
+    return redirect('/follow/create')->with('msg','Error ao enviar mensagem, você não preenheu todos os campos!');
+  }
+
 }
 
 
+}
 
 

@@ -27,9 +27,9 @@ header{
    border-color: #C28008;
 }
 .msg{
-background-color: #a7e7e7;
-color: #050505;
-border: 1px solid #93ece8;
+background-color: #d4edda;
+color: #155724;
+border: 1px solid #c3e6cb;
 width: 100%;
 margin-bottom: 0px;
 text-align: center;
@@ -37,7 +37,6 @@ padding: 10px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 }
-
 /*Nav bar*/
 #navbar img {
 width: 60px;
@@ -213,14 +212,13 @@ footer p{
      padding: 10px;
      width: 275px;
  }
- #search-container-adm{
-    
-    background-image:url("../img/bn5.jpg");
-    background-size:cover;
-    background-position: center;
-    height: 400px;
+
+ #follow-container{
+    background-image:url("../img/fl.jpg");
+    background-size: cover;
+    background-position: left;
+    height: 805px; 
     padding: 50px;
     text-align: center;
-    border-radius: 10px;
-       
+    border-radius: 10px;   
 }

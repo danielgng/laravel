@@ -39,6 +39,10 @@ Route::get('/admin', [EventController::class, 'indexAdm']);
 
 Route::get('/events/adm/{id}', [EventController::class, 'showAdm']);
 
+Route::get('/follow/create', [EventController::class, 'createFollow'])->middleware('auth');
+
+Route::post('/follow', [EventController::class, 'follow']);
+
 
 
 

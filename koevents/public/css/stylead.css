@@ -1,0 +1,216 @@
+/*General-Geral*/
+* {
+    font-family: 'Oswald';
+}
+
+body{
+    /*min-height: tela total do usuario*/
+  min-height: 100vh;
+  /*botão*/
+  padding-bottom: 100px;
+  position: relative;
+}
+header{
+    background-color: rgb(245, 245, 245);
+    border-bottom: 1px solid #CCC;
+}
+
+.conteiner-fluid{
+     padding: 0;
+}
+.btn-primary{
+  background-color: #f2a340;
+  border: 2px solid #C28008;
+}
+.btn-primary:hover{
+   background-color: #C28008;
+   border-color: #C28008;
+}
+.msg{
+background-color: #d4edda;
+color: #155724;
+border: 1px solid #c3e6cb;
+width: 100%;
+margin-bottom: 0px;
+text-align: center;
+padding: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+/*Nav bar*/
+#navbar img {
+width: 60px;
+height: 60px;
+
+}
+#navbar{
+    justify-content: space-between;
+    background-color: rgb(245, 245, 245);    
+}
+#navbar a{
+    font-size: 16px;
+    color: #757575;
+}
+#navbar a:hover{   
+    color: #f2a340;
+}
+/*Search container*/
+#search-container{
+    background-image:url("../img/event-ccxp.jpg");
+    background-size:cover;
+    background-position: center;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+       
+}
+#search-container h1{   
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+#search-container form{
+width: 50%;
+margin: 0 auto;
+}
+/*Events list - Lista de Eventos*/
+#events-container{
+  padding: 50px;
+}
+#events-container h2{
+   margin-bottom: 10px;
+}
+#events-container .subtitle{
+    color: #585858;
+    margin-bottom: 30px;
+}
+#cards-container{
+    display: flex;
+}
+#events-container .card{
+    flex: 1 1 24%;
+    max-width: 19%;
+    border-radius: 20px;
+    padding: 0px;
+    margin: .5%;
+}
+#events-container img{
+ max-height: 120px;
+ border-top-left-radius: 20px;
+ border-top-right-radius: 20px;
+}
+.card .card-date{
+font-size: 12px;
+color: rgb(99, 99, 99);
+}
+.card .card-title{
+color: #212121;
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 30px;
+}
+.card-participants{
+    font-size: 16px;
+    color: #4b4b4b;
+}
+/*Dashboard Meus Eventos*/
+.dashboard-title-container{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.dashboard-events-container th{
+    width: 25%;
+}
+.dashboard-events-container form{
+    display: inline-block;
+}
+/*Editor da Pagina*/
+.img-preview{
+    width: 100px;
+    margin-top: 20px;
+}
+/*footer - rodapé*/
+footer{
+ text-align: center;
+ background-color: #373837;
+ color: #fff;
+ padding: 30px;
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+footer p{
+    margin-bottom: 0;
+}
+/*Create*/
+#event-container{
+    background-image:url("../img/banner02.jpg");
+    background-size: cover;
+    background-position: left;
+    height: 805px; 
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;   
+}
+
+#event-container label{
+    font-weight: bold;
+}
+#event-container input,
+#event-container select,
+#event-container textarea{
+    font-size: 17px;
+}
+/*Event Page - Pagina sobre o Evento*/
+ #image-container,
+ #info-container{
+     margin-top: 30px;
+ }
+
+ #image-container img{
+     border-radius: 10px;
+ }
+ #description-container{
+     margin-top: 30px;
+ }
+ 
+ #info-container h1{
+     font-size: 36px;
+     font-weight: 900;
+ }
+ #info-container p{
+     margin: 0;
+     font-size: 14px;
+     display: flex;
+ }
+ #info-container h3,
+ #description-container h3{
+     font-size: 20px;
+     font-weight: bold;
+ }
+ #info-container ion-icon{
+     font-size: 20px;
+     color: #f2a340;
+     margin-right: 5px;
+ }
+ #info-container #event-submit{
+     margin: 20px 0;
+ }
+ #items-list{
+   list-style: none;
+   padding-left: 0;
+ }
+ #items-list li{
+     display: flex;
+ }
+ #info-container .already-joined-msg {
+     margin-top: 15px 0;
+     color: #070707;
+     background-color: #CCE5FF;
+     border: 1px solid #B8DAFF;
+     border-radius: 10px;
+     padding: 10px;
+     width: 275px;
+ }
+
+ 

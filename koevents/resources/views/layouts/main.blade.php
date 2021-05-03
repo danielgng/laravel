@@ -29,6 +29,9 @@
         <a href="/dashboard" class="nav-link">Meus Eventos</a>
         </li>
         <li class="nav-item">
+        <a href="/follow/create" class="nav-link">Fale Conosco</a>
+        </li>
+        <li class="nav-item">
         <form action="/logout"method="POST">
         @csrf
         <a href="/logout" class="nav-link"
@@ -50,6 +53,9 @@
       </div>
       </nav>
       </header>
+
+  
+
 <main>
   <div class="container-fluid">
     <div class="row">
@@ -61,9 +67,11 @@
   </div>
 </main> 
 
+
     <footer>
     <p>King Of Events &copy; 2021</P>
      </footer>
      <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+     
     </body>
 </html>
