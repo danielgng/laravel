@@ -10,48 +10,29 @@
         <!--CSS Bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <!--CSS da aplicação-->
-      <link rel="stylesheet" href="/css/style.css">           
+      <link rel="stylesheet" href="/css/stylead.css">           
     </head>
 
     <body>
       <header>
       <nav class="navbar navbar-expand-lg navbar-light">
       <div class="callapse navbar-collapse" id="navbar">
-        <a href="/" class="navbar-brand">
-        <img src="/img/logo3.png" alt="Logo">
+        <a href="/admin" class="navbar-brand">
+        <img src="/img/gear.png" alt="Logo">
         </a>
-        <ul class="navbar-nav">           
-        @auth 
-        @if(Auth::user()->utype === 'ADM')
-        <li class="nav-item">
-        <a href="/admin" class="nav-link">Index Administrador</a>
-        </li>
-           <li class="nav-item">
-        <a href="/events/create" class="nav-link">Criar Eventos</a>
-        </li>
-        <li class="nav-item">
-        <a href="/dashboard-admin" class="nav-link">Meus Eventos</a>
-        </li>
-        @else
+        <ul class="navbar-nav">
         <li class="nav-item">
         <a href="/" class="nav-link">Inicio</a>
         </li>
         <li class="nav-item">
-<<<<<<< Updated upstream
         <a href="/events/create" class="nav-link">Criar Eventos</a>
         </li>
         @auth 
-=======
-        <a href="/dashboard" class="nav-link">Meus Eventos</a>
-        </li>      
->>>>>>> Stashed changes
         <li class="nav-item">
-        <a href="/dashboard" class="nav-link">Meus Eventos</a>
+        <a href="/dashboard-admin" class="nav-link">Meus Eventos</a>
         </li>
         <li class="nav-item">
-        <form action="/logout"method="POST">        
-        @endif
-      
+        <form action="/logout"method="POST">
         @csrf
         <a href="/logout" class="nav-link"
         onclick="event.preventDefault();
